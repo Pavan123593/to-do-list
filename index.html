@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Floating decorative elements -->
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+
+    <div class="container">
+        <header class="header">
+            <div class="header-top">
+                <h1 class="title">
+                    <i class="fas fa-tasks"></i>
+                    My Todo List
+                </h1>
+                <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <p class="subtitle">Stay organized and productive</p>
+            
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <span class="progress-text" id="progressText">0% Complete</span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="add-todo-section">
+                <form class="add-todo-form" id="addTodoForm">
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="todoInput" 
+                            placeholder="What needs to be done?" 
+                            class="todo-input"
+                            required
+                        >
+                        <button type="submit" class="add-btn">
+                            <i class="fas fa-plus"></i>
+                            Add Task
+                        </button>
+                    </div>
+                    
+                    <!-- Task Details -->
+                    <div class="task-details" id="taskDetails">
+                        <div class="detail-row">
+                            <div class="detail-group">
+                                <label for="dueDate">Due Date:</label>
+                                <input type="date" id="dueDate" class="detail-input">
+                            </div>
+                            <div class="detail-group">
+                                <label for="category">Category:</label>
+                                <select id="category" class="detail-input">
+                                    <option value="">Select Category</option>
+                                    <option value="work">💼 Work</option>
+                                    <option value="personal">👤 Personal</option>
+                                    <option value="shopping">🛒 Shopping</option>
+                                    <option value="health">🏥 Health</option>
+                                    <option value="education">📚 Education</option>
+                                    <option value="finance">💰 Finance</option>
+                                    <option value="other">📝 Other</option>
+                                </select>
+                            </div>
+                            <div class="detail-group">
+                                <label for="priority">Priority:</label>
+                                <select id="priority" class="detail-input">
+                                    <option value="low">🟢 Low</option>
+                                    <option value="medium" selected>🟡 Medium</option>
+                                    <option value="high">🔴 High</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="filter-section">
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search tasks..." class="search-input">
+                    </div>
+                </div>
+                
+                <div class="filter-controls">
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="active">Active</button>
+                        <button class="filter-btn" data-filter="completed">Completed</button>
+                    </div>
+                    
+                    <div class="filter-dropdowns">
+                        <select id="categoryFilter" class="filter-select">
+                            <option value="">All Categories</option>
+                            <option value="work">💼 Work</option>
+                            <option value="personal">👤 Personal</option>
+                            <option value="shopping">🛒 Shopping</option>
+                            <option value="health">🏥 Health</option>
+                            <option value="education">📚 Education</option>
+                            <option value="finance">💰 Finance</option>
+                            <option value="other">📝 Other</option>
+                        </select>
+                        
+                        <select id="priorityFilter" class="filter-select">
+                            <option value="">All Priorities</option>
+                            <option value="high">🔴 High</option>
+                            <option value="medium">🟡 Medium</option>
+                            <option value="low">🟢 Low</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="stats">
+                    <span id="todoCount">0 tasks remaining</span>
+                </div>
+            </div>
+
+            <div class="todos-container">
+                <ul class="todos-list" id="todosList">
+                    <!-- Todos will be dynamically added here -->
+                </ul>
+                
+                <div class="empty-state" id="emptyState">
+                    <i class="fas fa-clipboard-list"></i>
+                    <h3>No tasks yet</h3>
+                    <p>Add your first task above to get started!</p>
+                </div>
+            </div>
+
+            <div class="actions-section">
+                <button class="clear-completed-btn" id="clearCompleted">
+                    <i class="fas fa-trash"></i>
+                    Clear Completed
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
