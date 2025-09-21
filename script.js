@@ -508,7 +508,7 @@ class TodoApp {
             position: fixed;
             top: 20px;
             right: 20px;
-            background: linear-gradient(135deg, #20b2aa 0%, #48cae4 100%);
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
             color: white;
             padding: 1rem 1.5rem;
             border-radius: 10px;
